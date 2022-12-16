@@ -77,9 +77,9 @@ export default function Home() {
             <Text>{`得意な領域: フロントエンド(React / Next.js)`}</Text>
           </Box>
         </FlexCol>
-        <FlexCol>
+        <FlexCol gap={12}>
           <Heading>Developments</Heading>
-          <Box pl={4}>
+          <Flex gap={12} pl={4} flexWrap="wrap">
             {projects.map((project, index) => {
               return (
                 <ProjectView
@@ -89,7 +89,7 @@ export default function Home() {
                 />
               );
             })}
-          </Box>
+          </Flex>
         </FlexCol>
       </FlexCol>
     </Container>

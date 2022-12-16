@@ -5,4 +5,7 @@ export const colors = {
   subFont: "#768390",
   border: "#444C56",
   subBorder: "#ADBAC7",
+  background: {
+    card: "#2d3748",
+  },
 };

@@ -1,5 +1,11 @@
-import { Box, Text } from "@chakra-ui/react";
-import Image from "next/image";
+import {
+  Box,
+  Card,
+  CardBody,
+  Stack,
+  StackDivider,
+  Text,
+} from "@chakra-ui/react";
 import { FlexCol } from "src/components/chakra-ui/Box";
 import { colors } from "src/constants/colors";
 import type { Project } from "src/entities/Project";
@@ -25,52 +31,44 @@ const Summary = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export const ProjectView = ({
-  imageProps,
-  noBorder,
-  project,
-}: ProjectProps) => {
+export const ProjectView = ({ project }: ProjectProps) => {
   return (
-    <FlexCol
-      gap={20}
-      px={20}
-      pb={40}
-      borderColor={colors.subBorder}
-      borderBottom={noBorder ? "none" : "1px solid"}
+    <Card
+      m={6}
+      p={20}
+      h={550}
+      w={400}
+      backgroundColor={colors.background.card}
+      borderRadius={8}
     >
-      <Text as="h2" mt={20} mb={8}>
-        {project.name}
-      </Text>
-      <FlexCol gap={2} pl={2}>
-        <Summary>概要</Summary>
-        <Box py={8} pl={12}>
-          <Text m={0} whiteSpace="pre-wrap">
-            {project.description}
-          </Text>
-        </Box>
-      </FlexCol>
-      <FlexCol gap={2} pl={2}>
-        <Summary>技術スタック</Summary>
-        <FlexCol gap={6} py={8} pl={8}>
-          {project.technologyStacks.map((technologyStack, index) => {
-            return (
-              <Text key={index} m={0}>
-                ・{technologyStack}
-              </Text>
-            );
-          })}
-        </FlexCol>
-      </FlexCol>
-      {imageProps && (
-        <Box>
-          <>
-            {
-              // eslint-disable-next-line jsx-a11y/alt-text
-              <Image {...imageProps} />
-            }
-          </>
-        </Box>
-      )}
-    </FlexCol>
+      <CardBody>
+        <Text as="h2" my={20}>
+          {project.name}
+        </Text>
+        <Stack
+          divider={<StackDivider borderColor={colors.border} />}
+          spacing="4"
+        >
+          <FlexCol h={200}>
+            <Summary>概要</Summary>
+            <Text pl={12} whiteSpace="pre-wrap" noOfLines={6}>
+              {project.description}
+            </Text>
+          </FlexCol>
+          <FlexCol gap={2} pl={2} h={250}>
+            <Summary>技術スタック</Summary>
+            <FlexCol gap={6} py={8} pl={8}>
+              {project.technologyStacks.map((technologyStack, index) => {
+                return (
+                  <Text key={index} m={0}>
+                    ・{technologyStack}
+                  </Text>
+                );
+              })}
+            </FlexCol>
+          </FlexCol>
+        </Stack>
+      </CardBody>
+    </Card>
   );
 };

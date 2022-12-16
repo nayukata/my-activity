@@ -2,12 +2,12 @@ import type { Project } from "src/entities/Project";
 
 export const projects: Project[] = [
   {
-    name: "J-Start",
+    name: "コールセンター",
     description: "治験用の電話応対システム",
     technologyStacks: ["Vue.js", "Nest.js", "MySQL"],
   },
   {
-    name: "ハウスクリーニング",
+    name: "清掃依頼管理アプリ",
     description: `清掃・家事代行サービス\n\n以下の3システムをmonorepoで開発\n・管理者用\n・清掃業者用\n・スタッフ用`,
     technologyStacks: [
       "React",
@@ -19,7 +19,7 @@ export const projects: Project[] = [
     ],
   },
   {
-    name: "スイスイ旅",
+    name: "旅行者向けアプリ",
     description:
       "道路渋滞や店舗混雑を低減するための自家用車で観光する観光客向けスマートフォンアプリ",
     technologyStacks: ["Flutter", "Firebase", "GCP"],

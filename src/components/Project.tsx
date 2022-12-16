@@ -46,7 +46,7 @@ export const ProjectView = ({ project }: ProjectProps) => {
           {project.name}
         </Text>
         <Stack
-          pl={12}
+          pl={8}
           divider={<StackDivider borderColor={colors.border} />}
           spacing="4"
         >

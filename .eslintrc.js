@@ -2,17 +2,14 @@ module.exports = {
   root: true,
   parser: "@typescript-eslint/parser",
   parserOptions: { project: "./tsconfig.json" },
-  settings: { tailwindcss: { groupByResponsive: true } },
   plugins: [
     "simple-import-sort",
     "sort-destructure-keys",
-    "tailwindcss",
     "import-access",
     "testing-library",
   ],
   extends: [
     "plugin:@typescript-eslint/recommended",
-    "plugin:tailwindcss/recommended",
     "next/core-web-vitals",
     "prettier",
   ],
@@ -105,12 +102,16 @@ module.exports = {
   overrides: [
     {
       files: [
-        "pages/**/*.tsx",
-        "pages/api/**/*.ts",
+        "**/pages/**/*.tsx",
+        "**/pages/**/*.ts",
+        "**/pages/api/**/*.ts",
         "next.config.mjs",
         "playwright.config.ts",
       ],
-      rules: { "import/no-default-export": "off" },
+      rules: {
+        "import/no-default-export": "off",
+        "@typescript-eslint/naming-convention": "off",
+      },
     },
     {
       files: ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],

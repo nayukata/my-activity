@@ -15,6 +15,11 @@ const Heading = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
+const birthYear = 1993;
+const currentDate = new Date();
+const currentYear = currentDate.getFullYear();
+const age = currentYear - birthYear;
+
 export default function Home() {
   return (
     <Container bg={colors.body} color={colors.font}>
@@ -65,6 +70,8 @@ export default function Home() {
             Profile
           </Text>
           <Box pl={20}>
+            <Text>氏名：中山 裕太郎</Text>
+            <Text>{`年齢： ${age}歳`}</Text>
             <Text>所属：ニチコマ合同会社</Text>
             <Text>エンジニア歴: 2年8ヶ月</Text>
             <Text>{`得意な領域: フロントエンド(React / Next.js)`}</Text>

@@ -32,7 +32,7 @@ export const ProjectView = ({
 }: ProjectProps) => {
   return (
     <FlexCol
-      gap={16}
+      gap={20}
       px={20}
       pb={40}
       borderColor={colors.subBorder}
@@ -43,13 +43,15 @@ export const ProjectView = ({
       </Text>
       <FlexCol gap={2} pl={2}>
         <Summary>概要</Summary>
-        <Box pl={4}>
-          <Text whiteSpace="pre-wrap">{project.description}</Text>
+        <Box py={8} pl={12}>
+          <Text m={0} whiteSpace="pre-wrap">
+            {project.description}
+          </Text>
         </Box>
       </FlexCol>
       <FlexCol gap={2} pl={2}>
         <Summary>技術スタック</Summary>
-        <FlexCol gap={6} pl={4}>
+        <FlexCol gap={6} py={8} pl={8}>
           {project.technologyStacks.map((technologyStack, index) => {
             return (
               <Text key={index} m={0}>
